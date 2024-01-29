@@ -3,6 +3,7 @@ import 'package:case_app/pages/participants/participants_controller.dart';
 import 'package:case_app/widget/loading_scope.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 final participantsController = ChangeNotifierProvider((ref) => ParticipantsController());
 
@@ -26,9 +27,10 @@ class _ParticipantsViewState extends ConsumerState<ParticipantsView> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        title: const Center(
+        title: Center(
           child: Text(
             Constant.participants,
+            style: GoogleFonts.dancingScript(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
         ),
