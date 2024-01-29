@@ -10,7 +10,11 @@ class Constant {
 
   //ASSETS
   static const String logoPath = 'assets/images/logo.png';
+  static const String noInternetPath = 'assets/lottie/no_internet.json';
 
   //SHARED PREFERENCES
   static const String tokenKey = 'TOKEN';
+
+  //ERROR
+  static const String tryAgain = 'Try Again...';
 }

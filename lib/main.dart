@@ -2,6 +2,7 @@ import 'package:case_app/constant/constant.dart';
 import 'package:case_app/pages/login/login_view.dart';
 import 'package:case_app/pages/participants/participants_view.dart';
 import 'package:case_app/util/context_extensions.dart';
+import 'package:case_app/widget/connection_scope.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,17 +22,19 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
         useMaterial3: true,
       ),
-      home: FutureBuilder<Widget>(
-        future: goPage(context),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return snapshot.data!;
-          } else if (snapshot.hasError) {
-            return Text(snapshot.error.toString());
-          } else {
-            return const CircularProgressIndicator();
-          }
-        },
+      home: ConnectionScope(
+        child: FutureBuilder<Widget>(
+          future: goPage(context),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return snapshot.data!;
+            } else if (snapshot.hasError) {
+              return Text(snapshot.error.toString());
+            } else {
+              return const CircularProgressIndicator();
+            }
+          },
+        ),
       ),
     );
   }
