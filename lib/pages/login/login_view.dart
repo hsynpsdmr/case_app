@@ -3,6 +3,7 @@ import 'package:case_app/model/token_model.dart';
 import 'package:case_app/pages/login/login_controller.dart';
 import 'package:case_app/pages/login/login_model.dart';
 import 'package:case_app/pages/login/login_service.dart';
+import 'package:case_app/pages/participants/participants_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -29,7 +30,11 @@ class LoginView extends ConsumerWidget {
             return tokenModel?.error;
           }
         },
-        onSubmitAnimationCompleted: () {},
+        onSubmitAnimationCompleted: () {
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => const ParticipantsView(),
+          ));
+        },
         onRecoverPassword: (_) {
           return null;
         },

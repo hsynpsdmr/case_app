@@ -13,4 +13,12 @@ class HttpService {
     http.StreamedResponse response = await request.send();
     return response;
   }
+
+  Future<http.StreamedResponse> get(String url) async {
+    var request = http.Request('GET', Uri.parse(baseUrl + url));
+    request.headers.addAll(headers);
+
+    http.StreamedResponse response = await request.send();
+    return response;
+  }
 }
