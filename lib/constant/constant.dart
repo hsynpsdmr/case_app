@@ -10,4 +10,7 @@ class Constant {
 
   //ASSETS
   static const String logoPath = 'assets/images/logo.png';
+
+  //SHARED PREFERENCES
+  static const String tokenKey = 'TOKEN';
 }
